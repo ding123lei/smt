@@ -1,0 +1,89 @@
+server:
+  port: 8080
+  use-forward-headers: true
+
+spring:
+  datasource:
+    host: 127.0.0.1
+    port: 3306
+    schema: pig
+    url: jdbc:mysql://${spring.datasource.host}:${spring.datasource.port}/${spring.datasource.schema}?characterEncoding=UTF-8&allowMultiQueries=true
+    username: zyz
+    password: yQvwvLUa44!zSq2e
+    initialize: false
+    continue-on-error: true
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    max-active: 10
+    max-wait: 10000
+    min-idle: 5
+    initial-size: 5
+    validation-query: select 1
+  jooq:
+    sql-dialect: mysql
+    host: localhost
+    port: 3306
+    schema: pig
+    url: jdbc:mysql://${spring.jooq.host}:${spring.jooq.port}/${spring.jooq.schema}?characterEncoding=UTF-8&allowMultiQueries=true
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+zyz:
+  task:
+    cycle: 7
+    help-count: 3
+  money:
+    min-range:
+      - 14
+      - 1
+    middle-range:
+      - 79
+      - 20
+    daily-sum: 199
+    sleep-due-time: 3
+  message:
+    expectedDays:
+      ${zyz.task.cycle}天总共存钱%d元、平均每天存钱%d元
+    savedMoneyNotice:
+      要自觉存钱哦
+    notSavingMoney:
+        0,6:
+          有点早了，别打扰TA
+        6,12:
+          TA估计还没起床呢，叫醒TA
+        12,20:
+          TA还没有存钱，戳这里提醒
+        20,24:
+          TA还是要放弃，戳这里提醒
+    savedMoney:
+      - TA为你\"破\"了财，快看看吧
+      - TA一定是藏了私房钱，快看
+      - 已经存钱，看看说了什么
+      - TA一直很努力的在存钱
+    glanced:
+      - TA可能在偷看你存的钱
+      - TA偷看了你3次，去看看TA
+    glancePage:
+      heIs:
+        - 再晚也要想着你，为了和你旅行
+        - 每天都想着你，不曾间断
+        - 为你存下我所有的私房钱
+      heForYou:
+        存下%s
+    remark:
+      remind: 你的TA提醒你存钱
+      sleep: 我快要寂寞死了>_<
+  remark:
+    single:
+      - 单身狗才自己存钱玩
+      - 你的TA在哪里？
+      - 你是不是把TA搞丢了？
+      - 这里有一条单身\"猪\"
+    doubleNotSavingMoney:
+      - 0,6: 还不睡呢
+        6,12: 来的真早
+        12,20: 想吃下午茶了
+        20,24: 亲早点睡
+  template:
+    id: 2GjUVGguXuy1bDW0I7UvBzVQUleTMBLem9rCNg3JEFw

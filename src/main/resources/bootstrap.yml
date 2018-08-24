@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: smt
+    version: 1.0.0-SNAPSHOT
+    instance: 0
+  cloud:
+    config:
+      enabled: false
+
+logging:
+  path: ${app.home:${user.home}}/logs
