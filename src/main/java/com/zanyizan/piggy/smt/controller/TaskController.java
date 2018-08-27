@@ -139,8 +139,9 @@ public class TaskController {
     }
 
     @RequestMapping("/help.do")
-    public ApiResponse<?> help(@RequestParam("userId") String userId){
-        ZyzTaskRecord taskRecord = taskService.getTaskByUserWithoutInit(userId);
+    public ApiResponse<?> help(@RequestParam("userId") String userId,
+                               @RequestParam("targetUserId") String targetUserId){
+        ZyzTaskRecord taskRecord = taskService.getTaskByUserWithoutInit(targetUserId);
         if(taskRecord == null){
             return new ApiResponse<>(ResponseCode.NO_DATA);
         }
@@ -150,7 +151,7 @@ public class TaskController {
         if(taskRecord.getStatus() != TaskStatus.SLEEP.ordinal()){
             return new ApiResponse<>(ResponseCode.SUCCESS);
         }
-        taskService.help(taskRecord, userId);
+        taskService.help(taskRecord, targetUserId);
         return ApiResponse.OK();
     }
 
