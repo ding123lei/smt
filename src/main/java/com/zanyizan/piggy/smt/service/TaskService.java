@@ -39,7 +39,7 @@ public class TaskService {
     @Value("${zyz.task.cycle:7}")
     private Integer taskCycle;
 
-    @Value("${zyz.task.help-count:3}")
+    @Value("${zyz.task.help-count:1}")
     private Integer helpCount;
 
     @Value("${zyz.money.sleepDueTime:3}")

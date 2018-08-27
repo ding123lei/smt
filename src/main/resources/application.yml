@@ -32,7 +32,7 @@ spring:
 zyz:
   task:
     cycle: 7
-    help-count: 3
+    help-count: 1
   money:
     min-range:
       - 14
