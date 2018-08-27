@@ -18,5 +18,5 @@ public class UserVo {
     private String avatar;
     private Date createTime;
     private String money;
-    private boolean isNew = true;
+    private boolean isNew = false;
 }
